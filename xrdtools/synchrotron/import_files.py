@@ -23,7 +23,7 @@ def load_tiff(filepath):
     return imread(filepath)
 
 def load_binary(filepath, height, width, encoding, byteorder):
-    encode_str = f"{BYTEORDER[byteorder]}{width*height}{PRECISION[encoding]}"
+    encode_str = f"{BYTEORDER[byteorder]}{height*width}{PRECISION[encoding]}"
     binary_img = Path(filepath).read_bytes()
     decoded_img = unpack(encode_str, binary_img)
     return np.reshape(decoded_img, (height, -1))

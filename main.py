@@ -1,4 +1,4 @@
-import xrdtools as xs
+import xrdtools.synchrotron as syn
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -11,7 +11,7 @@ if __name__ == "__main__":
         "byteorder": "little"
     }
 
-    img = xs.load_binary(file, **binary_info)
+    img = syn.load_binary(file, **binary_info)
     
     fig, ax = plt.subplots(figsize=(5, 5))
     ax.imshow(np.log(img))
